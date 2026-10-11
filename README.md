@@ -41,7 +41,7 @@ This plugin establishes modern, production-grade engineering standards for Grafa
 
 ## What's Included
 
-### 1. Automatic Guardrails (`rules/AGENTS.md`)
+### 1. Automatic Guardrails (`rules/modern-k6-engineering.md`)
 Automatically enforced across all projects utilizing Grafana K6:
 - **Mandatory Dedicated `README.md`**: Absolute mandate requiring any directory housing k6 scripts to maintain an up-to-date living runbook synchronized in every PR.
 - **Ban on High-Cardinality Metric Tagging**: Mandatory URL template grouping (`tags: { name: '...' }` or `http.url`) to prevent metric explosion and OOM crashes.
@@ -89,7 +89,7 @@ modern-k6-best-practices/
 ├── plugin.json
 ├── README.md
 ├── rules/
-│   └── AGENTS.md
+│   └── modern-k6-engineering.md
 └── skills/
     ├── modern-k6-test-craftsmanship/
     │   ├── SKILL.md
