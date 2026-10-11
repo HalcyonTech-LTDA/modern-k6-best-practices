@@ -1,5 +1,5 @@
 {
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "modern-k6-best-practices",
-  "description": "Professional modern Grafana K6 performance engineering best practices covering modular script craftsmanship, workload modeling & scenarios, deterministic thresholds & quality gates, containerized orchestration & reporting, and mandatory living README.md runbook documentation discipline.",
-  "version": "1.0.0"
+  "description": "Professional modern Grafana K6 performance engineering best practices covering modular script craftsmanship, workload modeling & scenarios, deterministic thresholds & quality gates, containerized orchestration & reporting, and mandatory living README.md runbook documentation discipline."
 }
