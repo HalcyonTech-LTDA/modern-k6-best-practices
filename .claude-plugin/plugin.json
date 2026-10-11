@@ -1,0 +1,14 @@
+{
+  "name": "modern-k6-best-practices",
+  "description": "Professional modern Grafana K6 performance engineering best practices covering modular script craftsmanship, workload modeling & scenarios, deterministic thresholds & quality gates, containerized orchestration & reporting, and mandatory living README.md runbook documentation discipline.",
+  "author": {
+    "name": "Halcyon Tech",
+    "url": "https://github.com/HalcyonTech-LTDA"
+  },
+  "homepage": "https://github.com/HalcyonTech-LTDA/modern-k6-best-practices",
+  "repository": "https://github.com/HalcyonTech-LTDA/modern-k6-best-practices",
+  "license": "MIT",
+  "skills": [
+    "./claude/skills/"
+  ]
+}
