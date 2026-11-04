@@ -1,5 +1,20 @@
 {
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "modern-k6-best-practices",
-  "description": "Professional modern Grafana K6 performance engineering best practices covering modular script craftsmanship, workload modeling & scenarios, deterministic thresholds & quality gates, containerized orchestration & reporting, and mandatory living README.md runbook documentation discipline."
+  "description": "Professional modern Grafana K6 performance engineering best practices covering modular script craftsmanship, workload modeling & scenarios, deterministic thresholds & quality gates, containerized orchestration & reporting, and mandatory living README.md runbook documentation discipline.",
+  "displayName": "Modern K6 Best Practices",
+  "version": "1.0.0",
+  "author": {
+    "name": "Halcyon Tech",
+    "url": "https://github.com/HalcyonTech-LTDA"
+  },
+  "homepage": "https://github.com/HalcyonTech-LTDA/modern-k6-best-practices",
+  "repository": "https://github.com/HalcyonTech-LTDA/modern-k6-best-practices",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Design an automated k6 performance testing suite with custom thresholds",
+    "Structure stress, spike, and soak load tests for high-throughput APIs",
+    "Analyze k6 test execution metrics and identify system latency bottlenecks"
+  ]
 }
