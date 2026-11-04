@@ -1,37 +1,39 @@
-# Modern Grafana K6 Best Practices Plugin
+<div align="center">
 
-An Antigravity plugin providing automated engineering guardrails, architectural patterns, workload modeling standards, container orchestration, and procedural skills for modern **Grafana K6** performance testing: modular ES6+ script craftsmanship, high-cardinality metric prevention, scenarios and arrival-rate executors (eliminating Coordinated Omission), memory-efficient `SharedArray` hygiene, deterministic quality gates (thresholds), native Web Dashboards, and the **mandatory living `README.md` documentation discipline**.
+# Modern K6 Best Practices Plugin
+### Modern Performance Testing, Automated SLA Thresholds & Load Simulation
+
+[![Antigravity Plugin](https://img.shields.io/badge/Antigravity-Plugin%20v1.0.0-4F46E5.svg)](https://antigravity.google)
+[![License: MIT](https://img.shields.io/badge/License-MIT-10B981.svg)](./LICENSE)
+[![Organization](https://img.shields.io/badge/Organization-HalcyonTech--LTDA-black.svg)](https://github.com/HalcyonTech-LTDA)
+
+<p align="center">
+  <b>Professional modern Grafana K6 performance engineering best practices covering modular script craftsmanship, workload modeling & scenarios, deterministic thresholds & quality gates, containerized orchestration & reporting, and mandatory living README.md runbook documentation discipline.</b>
+</p>
+
+</div>
 
 ---
 
-## Installation
+## Installation & Verification
 
-### Antigravity
+### Antigravity CLI (`agy`)
 
-Install directly in Antigravity via the CLI:
+Install directly into your Antigravity environment via the CLI:
 
 ```bash
 agy plugin install https://github.com/HalcyonTech-LTDA/modern-k6-best-practices
 ```
 
-Verify that the plugin is installed and ready:
+Verify that the plugin is active and adheres to the strict official schema:
 
 ```bash
 agy plugin list
+agy plugin validate --strict ./modern-k6-best-practices
 ```
-
-### Claude Code
-
-Add the Halcyon Tech marketplace once, then install the plugin:
-
-```text
-/plugin marketplace add HalcyonTech-LTDA/halcyon-plugins
-/plugin install modern-k6-best-practices@halcyon-plugins
-```
-
-Skills are namespaced by plugin in Claude Code (`/modern-k6-best-practices:<skill-name>`). The guardrails in `rules/` load through the skills in `claude/skills/`.
 
 ---
+
 ## Overview
 
 In modern cloud-native systems, continuous delivery, and distributed microservices, performance testing is not an occasional manual benchmark. It is a continuous, automated quality gate.
@@ -52,85 +54,60 @@ This plugin establishes modern, production-grade engineering standards for Grafa
 
 ---
 
-## What's Included
+---
 
-### 1. Automatic Guardrails (`rules/modern-k6-engineering.md`)
-Automatically enforced across all projects utilizing Grafana K6:
-- **Mandatory Dedicated `README.md`**: Absolute mandate requiring any directory housing k6 scripts to maintain an up-to-date living runbook synchronized in every PR.
-- **Ban on High-Cardinality Metric Tagging**: Mandatory URL template grouping (`tags: { name: '...' }` or `http.url`) to prevent metric explosion and OOM crashes.
-- **Mandatory Modern `scenarios` Architecture**: Prohibiting flat global options for multi-workload tests in favor of the `scenarios` API.
-- **Strict Memory Hygiene with `SharedArray`**: Requiring `k6/data` `SharedArray` for external fixtures > 100 rows to prevent per-VU RAM duplication.
-- **Deterministic Quality Gates (Thresholds)**: Mandatory pass/fail thresholds on latency percentiles (P90/P95/P99) and error rates (`http_req_failed`) exiting with code 99 on breach.
-- **Defensive Parsing & Non-Halting Checks**: Requiring safe status validation before `JSON.parse` and using `check()` rather than throwing fatal exceptions.
-- **Realistic Pacing & Dynamic Think Time**: Banning zero-delay hammering in user journeys; requiring randomized think time with jitter to prevent laser-burst microbursting.
-- **Zero Secrets & Dynamic Environment Decoupling**: Centralizing environment resolution via `config/environments.js` and banning hardcoded credentials or URLs.
-- **Standardized Resilient HTTP Client Wrapper**: Encapsulating HTTP requests with default timeouts, headers, and distributed tracing correlation IDs (`X-Correlation-ID`).
-- **Containerized Execution & Self-Contained Automation**: Providing containerized execution via `grafana/k6` and automated runners with intelligent Docker fallback.
+## What's Included (Component Catalog)
+
+### Contextual Rules (`rules/`)
+Automatically loaded to govern and protect project contexts:
+- **[`modern-k6-engineering.md`](rules/modern-k6-engineering.md)**: Automatically enforces modern Grafana K6 engineering standards: modular script architecture, high-cardinality metric prevention, scenarios and workload modeling, memory hygiene with SharedArray, deterministic quality gates (thresholds), non-halting defensive checks, realistic pacing, zero-secret environment decoupling, official container orchestration, and mandatory living README.md runbook documentation.
+
+### Procedural Skills (`skills/`)
+On-demand actionable workflows and runbooks:
+- **[`/modern-k6-living-documentation`](skills/modern-k6-living-documentation/SKILL.md)**: Use this skill when authoring, updating, or reviewing documentation for Grafana K6 performance testing suites: establishing the mandatory dedicated README.md living documentation, documenting System Under Test (SUT) scope, maintaining scenario & SLA matrices, defining dynamic environment contracts, and enforcing documentation synchronization in pull requests.
+- **[`/modern-k6-orchestration-and-reporting`](skills/modern-k6-orchestration-and-reporting/SKILL.md)**: Use this skill when orchestrating Grafana K6 executions in containers, CI/CD pipelines, and reporting backends: official grafana/k6 Docker containers, Web Dashboard configuration (K6_WEB_DASHBOARD), custom summary handlers (handleSummary for JUnit/JSON/HTML), telemetry streaming (Grafana Cloud, Prometheus, InfluxDB), and automated GitHub Actions workflows.
+- **[`/modern-k6-test-craftsmanship`](skills/modern-k6-test-craftsmanship/SKILL.md)**: Use this skill when authoring, structuring, or refactoring Grafana K6 test scripts: modern ES6+ modular architecture, standardized HTTP client abstraction, URL metric tag grouping to prevent high cardinality, custom metrics (Trend, Rate, Counter, Gauge), defensive response parsing, non-halting checks, and memory-efficient SharedArray parameterization.
+- **[`/modern-k6-workloads-and-thresholds`](skills/modern-k6-workloads-and-thresholds/SKILL.md)**: Use this skill when modeling workloads and configuring quality gates in Grafana K6: modern scenarios API, executor selection (closed vs open arrival-rate models to prevent Coordinated Omission), workload profiles (smoke, load, stress, spike, soak), and deterministic SLA thresholds.
 
 ---
 
-### 2. Specialized Skills (`skills/`)
-
-#### 🛠️ `modern-k6-test-craftsmanship`
-Guides modular script architecture, client wrappers, metric tagging, and data parameterization:
-- `references/script_architecture_and_modular_design.md`: Five-layer directory architecture, configuration resolution, decoupled user journey flow pattern, and composition of test suites.
-- `references/metrics_tags_and_checks.md`: Built-in metric taxonomy, URL tag grouping strategies, custom metrics (Trend, Rate, Counter, Gauge), non-halting checks, and tag-scoped thresholds.
-- `references/data_parameterization_and_shared_array.md`: Dynamic synthetic data generators vs. seeded fixtures, `SharedArray` memory architecture, and JSON/CSV streaming patterns.
-
-#### ⚖️ `modern-k6-workloads-and-thresholds`
-Guides workload modeling, executor selection, test profiles, and SLA quality gates:
-- `references/scenarios_and_executors.md`: The 7 K6 executors matrix, open vs closed models, eliminating Coordinated Omission with arrival rates, and multi-scenario scheduling.
-- `references/test_profiles_and_workload_patterns.md`: The five standard test profiles (Smoke, Load, Stress, Spike, Soak) with runnable options configurations and operational goals.
-- `references/thresholds_and_quality_gates.md`: Threshold syntax, percentile math, tag filtering, non-zero exit codes (exit 99) in CI/CD, and `abortOnFail` circuit breakers.
-
-#### 📖 `modern-k6-living-documentation`
-Guides the mandatory living documentation standard for Grafana K6 testing suites:
-- `references/k6_readme_standard_template.md`: Complete, production-grade template blueprint for a dedicated `k6/README.md`.
-- `references/sla_matrix_and_runbook_recipes.md`: Designing SLA/SLO quality gate matrices, Taskfile/Makefile runners with intelligent Docker fallback, cross-platform container networking, and PR synchronization checklists.
-
-#### 🐳 `modern-k6-orchestration-and-reporting`
-Guides containerization, Web Dashboards, CI/CD quality gates, and telemetry streaming:
-- `references/container_orchestration_and_docker_runners.md`: Official `grafana/k6` Docker images, non-root user permissions (UID 12345), Docker Compose choreography, and custom `xk6` extensions.
-- `references/reporting_dashboards_and_ci_cd.md`: Native Web Dashboard configuration (`K6_WEB_DASHBOARD`), standalone HTML exports, custom `handleSummary` reporting (JUnit XML, JSON), Prometheus remote write, and GitHub Actions pipelines.
-
----
-
-## Directory Layout
+## Directory Hierarchy
 
 ```text
 modern-k6-best-practices/
-├── plugin.json
-├── README.md
-├── rules/
+├── plugin.json              # Official Antigravity manifest (schema v1)
+├── LICENSE                  # MIT License (Copyright 2026 HalcyonTech LTDA)
+├── .gitignore               # System ignores & installed_version.json exclusions
+├── .gitattributes           # Deterministic line endings (* text=auto eol=lf)
+├── README.md                # Golden Standard documentation & runbook
+├── assets/
+│   └── logo.svg             # Official Halcyon Tech corporate vector symbol
+├── rules/                   # Contextual rules discovered automatically
 │   └── modern-k6-engineering.md
-└── skills/
-    ├── modern-k6-test-craftsmanship/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── data_parameterization_and_shared_array.md
-    │       ├── metrics_tags_and_checks.md
-    │       └── script_architecture_and_modular_design.md
-    ├── modern-k6-workloads-and-thresholds/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── scenarios_and_executors.md
-    │       ├── test_profiles_and_workload_patterns.md
-    │       └── thresholds_and_quality_gates.md
-    ├── modern-k6-living-documentation/
-    │   ├── SKILL.md
-    │   └── references/
-    │       ├── k6_readme_standard_template.md
-    │       └── sla_matrix_and_runbook_recipes.md
-    └── modern-k6-orchestration-and-reporting/
-        ├── SKILL.md
-        └── references/
-            ├── container_orchestration_and_docker_runners.md
-            └── reporting_dashboards_and_ci_cd.md
+├── skills/                  # Actionable procedural skills (Progressive Disclosure)
+│   └── modern-k6-living-documentation/
+│       └── SKILL.md
+│   └── modern-k6-orchestration-and-reporting/
+│       └── SKILL.md
+│   └── modern-k6-test-craftsmanship/
+│       └── SKILL.md
+│   └── modern-k6-workloads-and-thresholds/
+│       └── SKILL.md
 ```
 
 ---
 
-## License
+## 💡 Prompt Recipes & Use Cases
 
-This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
-Copyright (c) 2026 Halcyon Tech.
+```markdown
+- "Design an automated k6 performance testing suite with custom thresholds"
+- "Structure stress, spike, and soak load tests for high-throughput APIs"
+- "Analyze k6 test execution metrics and identify system latency bottlenecks"
+```
+
+---
+
+## 📄 License & Corporate Governance
+
+Distributed under the **MIT License**. Copyright (c) 2026 **HalcyonTech LTDA**.  
+Engineered with precision and excellence by [Halcyon Tech](https://github.com/HalcyonTech-LTDA).
